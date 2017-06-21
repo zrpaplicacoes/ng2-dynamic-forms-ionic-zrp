@@ -1,4 +1,4 @@
-import { EventEmitter, OnInit, QueryList } from "@angular/core";
+import { EventEmitter, ElementRef, OnInit, QueryList } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { Checkbox, DateTime, TextInput, RadioGroup, Range, Select, Toggle } from "ionic-angular";
 import { DynamicFormControlComponent, DynamicFormControlModel, DynamicFormArrayGroupModel, DynamicFormControlEvent, DynamicTemplateDirective } from "@ng2-dynamic-forms/core";
@@ -32,8 +32,10 @@ export declare class DynamicFormIonicComponent extends DynamicFormControlCompone
     ionRange: Range | undefined;
     ionSelect: Select | undefined;
     ionToggle: Toggle | undefined;
+    customTemplate: ElementRef;
     type: IonicFormControlType | undefined;
     constructor();
     ngOnInit(): void;
+    hasCustomTemplate(): boolean;
     static getFormControlType(model: DynamicFormControlModel): IonicFormControlType | null;
 }

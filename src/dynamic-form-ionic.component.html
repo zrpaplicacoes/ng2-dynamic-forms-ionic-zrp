@@ -5,7 +5,7 @@
                  [ngTemplateOutletContext]="model"></ng-template>
 
 
-    <div *ngIf="type === 1"
+    <div *ngIf="type === 1 && !hasCustomTemplate()"
          [dynamicId]="bindId && model.id"
          [formArrayName]="model.id"
          [ngClass]="model.cls.element.control">
@@ -30,7 +30,7 @@
     </div>
 
 
-    <fieldset *ngIf="type === 4"
+    <fieldset *ngIf="type === 4 && !hasCustomTemplate()"
               [dynamicId]="bindId && model.id"
               [formGroupName]="model.id"
               [name]="model.name"
@@ -49,7 +49,7 @@
     </fieldset>
 
 
-    <ion-list *ngIf="type === 6" radio-group
+    <ion-list *ngIf="type === 6 && !hasCustomTemplate()" radio-group
               [disabled]="model.disabled"
               [dynamicId]="bindId && model.id"
               [formControlName]="model.id"
@@ -68,7 +68,7 @@
     </ion-list>
 
 
-    <ion-item *ngIf="type !== 1 && type !== 4 && type !== 6" [ngSwitch]="type">
+    <ion-item *ngIf="type !== 1 && type !== 4 && type !== 6 && !hasCustomTemplate()" [ngSwitch]="type">
 
         <ion-label *ngIf="model.label !== null"
                    stacked
@@ -164,6 +164,8 @@
                  [ngTemplateOutlet]="template"
                  [ngTemplateOutletContext]="model"></ng-template>
 
-    <ng-content></ng-content>
+    <div #customTemplate>
+      <ng-content></ng-content>
+    </div>
 
 </div>
