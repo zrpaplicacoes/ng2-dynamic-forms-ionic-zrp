@@ -159,6 +159,16 @@
 
     </ion-item>
 
+    <div *ngIf="hasErrorMessaging"
+         [hidden]="!showErrorMessages"
+         [ngClass]="[model.cls.element.errors, model.cls.grid.errors]">
+
+      <p *ngFor="let message of errorMessages" class="has-error">
+        {{message}}
+      </p>
+
+    </div>
+
 
     <ng-template *ngIf="hasEndTemplate && type !== 1"
                  [ngTemplateOutlet]="template"
