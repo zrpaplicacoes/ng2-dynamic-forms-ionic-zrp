@@ -159,12 +159,13 @@
 
     </ion-item>
 
-    <div *ngIf="hasErrorMessaging"
-         [hidden]="!showErrorMessages"
+    <div *ngIf="controlModel.hasErrorMessages"
          [ngClass]="[model.cls.element.errors, model.cls.grid.errors]">
 
-      <p *ngFor="let message of errorMessages" class="has-error">
-        {{message}}
+      <p class="has-error">
+        <span *ngFor="let message of errorMessages">
+          {{message}}
+        </span>
       </p>
 
     </div>
