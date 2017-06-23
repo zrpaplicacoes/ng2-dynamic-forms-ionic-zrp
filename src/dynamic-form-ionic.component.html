@@ -11,7 +11,6 @@
          [ngClass]="model.cls.element.control">
 
         <fieldset *ngFor="let groupModel of model.groups; let idx = index" [formGroupName]="idx">
-            <legend *ngIf="model.label" [innerHTML]="model.label"></legend>
             <dynamic-form-ionic-control *ngFor="let controlModel of groupModel.group"
                                         [bindId]="false"
                                         [context]="groupModel"
