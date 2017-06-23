@@ -30,25 +30,27 @@
     </div>
 
 
-    <ion-card *ngIf="type === 4 && !hasCustomTemplate()"
-              [dynamicId]="bindId && model.id"
-              [formGroupName]="model.id"
-              [name]="model.name"
-              [ngClass]="model.cls.element.control">
+    <ion-card *ngIf="type === 4 && !hasCustomTemplate()">
 
       <ion-card-header *ngIf="model.legend">
         {{model.legend}}
       </ion-card-header>
 
       <ion-card-content>
-        <dynamic-form-ionic-control *ngFor="let controlModel of model.group"
-                                    [group]="control"
-                                    [hasErrorMessaging]="controlModel.hasErrorMessages"
-                                    [model]="controlModel"
-                                    [nestedTemplates]="templateDirectives"
-                                    (blur)="onFocusChange($event)"
-                                    (change)="onValueChange($event)"
-                                    (focus)="onFocusChange($event)"></dynamic-form-ionic-control>
+        <fieldset
+              [dynamicId]="bindId && model.id"
+              [formGroupName]="model.id"
+              [name]="model.name"
+              [ngClass]="model.cls.element.control">
+          <dynamic-form-ionic-control *ngFor="let controlModel of model.group"
+                                      [group]="control"
+                                      [hasErrorMessaging]="controlModel.hasErrorMessages"
+                                      [model]="controlModel"
+                                      [nestedTemplates]="templateDirectives"
+                                      (blur)="onFocusChange($event)"
+                                      (change)="onValueChange($event)"
+                                      (focus)="onFocusChange($event)"></dynamic-form-ionic-control>
+        </fieldset>
       </ion-card-content>
     </ion-card>
 
