@@ -71,7 +71,7 @@
     <ion-item *ngIf="type !== 1 && type !== 4 && type !== 6 && !hasCustomTemplate()" [ngSwitch]="type">
 
         <ion-label *ngIf="model.label !== null"
-                   [attr.stacked]="type !== 2"
+                   [attr.stacked]="type === 2"
                    [innerHTML]="model.label"
                    [ngClass]="[model.cls.element.label, model.cls.grid.label]"></ion-label>
 
