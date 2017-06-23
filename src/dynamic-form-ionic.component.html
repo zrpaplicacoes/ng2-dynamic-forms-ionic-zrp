@@ -11,7 +11,7 @@
          [ngClass]="model.cls.element.control">
 
         <fieldset *ngFor="let groupModel of model.groups; let idx = index" [formGroupName]="idx">
-
+            <legend *ngIf="model.label" [innerHTML]="model.label"></legend>
             <dynamic-form-ionic-control *ngFor="let controlModel of groupModel.group"
                                         [bindId]="false"
                                         [context]="groupModel"
@@ -30,29 +30,23 @@
     </div>
 
 
-    <ion-card *ngIf="type === 4 && !hasCustomTemplate()">
-
-      <ion-card-header *ngIf="model.legend">
-        {{model.legend}}
-      </ion-card-header>
-
-      <ion-card-content>
-        <fieldset
+    <fieldset *ngIf="type === 4 && !hasCustomTemplate()"
               [dynamicId]="bindId && model.id"
               [formGroupName]="model.id"
               [name]="model.name"
               [ngClass]="model.cls.element.control">
-          <dynamic-form-ionic-control *ngFor="let controlModel of model.group"
-                                      [group]="control"
-                                      [hasErrorMessaging]="controlModel.hasErrorMessages"
-                                      [model]="controlModel"
-                                      [nestedTemplates]="templateDirectives"
-                                      (blur)="onFocusChange($event)"
-                                      (change)="onValueChange($event)"
-                                      (focus)="onFocusChange($event)"></dynamic-form-ionic-control>
-        </fieldset>
-      </ion-card-content>
-    </ion-card>
+
+        <legend *ngIf="model.legend" [innerHTML]="model.legend"></legend>
+
+        <dynamic-form-ionic-control *ngFor="let controlModel of model.group"
+                                    [group]="control"
+                                    [hasErrorMessaging]="controlModel.hasErrorMessages"
+                                    [model]="controlModel"
+                                    [nestedTemplates]="templateDirectives"
+                                    (blur)="onFocusChange($event)"
+                                    (change)="onValueChange($event)"
+                                    (focus)="onFocusChange($event)"></dynamic-form-ionic-control>
+    </fieldset>
 
 
     <ion-list *ngIf="type === 6 && !hasCustomTemplate()" radio-group
