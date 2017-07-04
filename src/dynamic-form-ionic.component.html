@@ -68,6 +68,14 @@
 
 
     <ion-item *ngIf="type !== 1 && type !== 4 && type !== 6 && !hasCustomTemplate()" [ngSwitch]="type">
+        <ion-label *ngIf="(model.label !== null) && (type !== 2)"
+                   floating
+                   [innerHTML]="model.label"
+                   [ngClass]="[model.cls.element.label, model.cls.grid.label]"></ion-label>
+
+        <ion-label *ngIf="(model.label !== null) && (type === 2)"
+                   [innerHTML]="model.label"
+                   [ngClass]="[model.cls.element.label, model.cls.grid.label]"></ion-label>
 
         <ion-checkbox *ngSwitchCase="2"
                       [checked]="model.checked"
@@ -86,7 +94,6 @@
                       [max]="model.max"
                       [min]="model.min"
                       [ngClass]="model.cls.element.control"
-                      [placeholder]="model.placeholder"
                       (ionChange)="onValueChange($event)"></ion-datetime>
 
 
@@ -98,7 +105,6 @@
                    [max]="model.max"
                    [min]="model.min"
                    [ngClass]="model.cls.element.control"
-                   [placeholder]="model.placeholder"
                    [readonly]="model.readOnly"
                    [step]="model.step"
                    [textMask]="{mask: (model.mask || false), showMask: model.mask && !(model.placeholder)}"
@@ -124,7 +130,6 @@
                     [formControlName]="model.id"
                     [multiple]="model.multiple"
                     [ngClass]="model.cls.element.control"
-                    [placeholder]="model.placeholder"
                     (ionChange)="onValueChange($event)">
 
             <ion-option *ngFor="let option of model.options$ | async" [value]="option.value">{{option.label}}</ion-option>
@@ -138,7 +143,6 @@
                       [dynamicId]="bindId && model.id"
                       [formControlName]="model.id"
                       [ngClass]="model.cls.element.control"
-                      [placeholder]="model.placeholder"
                       [readonly]="model.readOnly"></ion-textarea>
 
 
@@ -150,16 +154,9 @@
                     [ngClass]="model.cls.element.control"
                     (ionChange)="onValueChange($event)"></ion-toggle>
 
-
-        <ion-label *ngIf="(model.label !== null) && (type !== 2)"
-                   stacked
-                   [innerHTML]="model.label"
-                   [ngClass]="[model.cls.element.label, model.cls.grid.label]"></ion-label>
-
-        <ion-label *ngIf="(model.label !== null) && (type === 2)"
-                   [innerHTML]="model.label"
-                   [ngClass]="[model.cls.element.label, model.cls.grid.label]"></ion-label>
-
+        <ion-note *ngIf='model.placeholder' class='hint form-hint'>
+          {{model.placeholder}}
+        </ion-note>
 
     </ion-item>
 

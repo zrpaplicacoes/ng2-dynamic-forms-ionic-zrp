@@ -1,4 +1,15 @@
-import { Component, ContentChildren, Input, EventEmitter, ElementRef, OnInit, Output, QueryList, ViewChild } from "@angular/core";
+import {
+    Component,
+    ContentChildren,
+    ElementRef,
+    EventEmitter,
+    Input,
+    OnChanges,
+    Output,
+    QueryList,
+    SimpleChanges,
+    ViewChild
+} from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { Checkbox, DateTime, TextInput, RadioGroup, Range, Select, Toggle } from "ionic-angular";
 import {
@@ -40,7 +51,7 @@ export const enum IonicFormControlType {
     selector: "dynamic-form-ionic-control",
     templateUrl: "./dynamic-form-ionic.component.html"
 })
-export class DynamicFormIonicComponent extends DynamicFormControlComponent implements OnInit {
+export class DynamicFormIonicComponent extends DynamicFormControlComponent implements OnChanges {
 
     @Input() bindId: boolean = true;
     @Input() context: DynamicFormArrayGroupModel = null;
@@ -53,6 +64,8 @@ export class DynamicFormIonicComponent extends DynamicFormControlComponent imple
     @Output() change: EventEmitter<DynamicFormControlEvent> = new EventEmitter<DynamicFormControlEvent>();
     @Output() focus: EventEmitter<DynamicFormControlEvent> = new EventEmitter<DynamicFormControlEvent>();
 
+    @ContentChildren(DynamicTemplateDirective) contentTemplates: QueryList<DynamicTemplateDirective>;
+
     @ViewChild(Checkbox) ionCheckbox: Checkbox | undefined;
     @ViewChild(DateTime) ionDateTime: DateTime | undefined;
     @ViewChild(TextInput) ionInput: TextInput | undefined;
@@ -62,21 +75,25 @@ export class DynamicFormIonicComponent extends DynamicFormControlComponent imple
     @ViewChild(Toggle) ionToggle: Toggle | undefined;
     @ViewChild("customTemplate") customTemplate: ElementRef;
 
+
     type: IonicFormControlType | undefined;
 
     constructor() {
         super();
     }
 
-    ngOnInit() {
-        super.ngOnInit();
+    ngOnChanges(changes: SimpleChanges) {
+        super.ngOnChanges(changes);
 
-        this.type = DynamicFormIonicComponent.getFormControlType(this.model);
+        if (changes["model"]) {
+            this.type = DynamicFormIonicComponent.getFormControlType(this.model);
+        }
     }
 
     hasCustomTemplate() {
         return this.customTemplate.nativeElement.children.length !== 0;
     }
+
 
     static getFormControlType(model: DynamicFormControlModel): IonicFormControlType | null {
 

@@ -1,4 +1,4 @@
-import { EventEmitter, ElementRef, OnInit, QueryList } from "@angular/core";
+import { ElementRef, EventEmitter, OnChanges, QueryList, SimpleChanges } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { Checkbox, DateTime, TextInput, RadioGroup, Range, Select, Toggle } from "ionic-angular";
 import { DynamicFormControlComponent, DynamicFormControlModel, DynamicFormArrayGroupModel, DynamicFormControlEvent, DynamicTemplateDirective } from "@ng2-dynamic-forms/core";
@@ -14,7 +14,7 @@ export declare const enum IonicFormControlType {
     TextArea = 9,
     Toggle = 10,
 }
-export declare class DynamicFormIonicComponent extends DynamicFormControlComponent implements OnInit {
+export declare class DynamicFormIonicComponent extends DynamicFormControlComponent implements OnChanges {
     bindId: boolean;
     context: DynamicFormArrayGroupModel;
     group: FormGroup;
@@ -24,6 +24,7 @@ export declare class DynamicFormIonicComponent extends DynamicFormControlCompone
     blur: EventEmitter<DynamicFormControlEvent>;
     change: EventEmitter<DynamicFormControlEvent>;
     focus: EventEmitter<DynamicFormControlEvent>;
+    contentTemplates: QueryList<DynamicTemplateDirective>;
     ionCheckbox: Checkbox | undefined;
     ionDateTime: DateTime | undefined;
     ionInput: TextInput | undefined;
@@ -34,7 +35,7 @@ export declare class DynamicFormIonicComponent extends DynamicFormControlCompone
     customTemplate: ElementRef;
     type: IonicFormControlType | undefined;
     constructor();
-    ngOnInit(): void;
+    ngOnChanges(changes: SimpleChanges): void;
     hasCustomTemplate(): boolean;
     static getFormControlType(model: DynamicFormControlModel): IonicFormControlType | null;
 }
