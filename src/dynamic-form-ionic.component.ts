@@ -53,8 +53,6 @@ export class DynamicFormIonicComponent extends DynamicFormControlComponent imple
     @Output() change: EventEmitter<DynamicFormControlEvent> = new EventEmitter<DynamicFormControlEvent>();
     @Output() focus: EventEmitter<DynamicFormControlEvent> = new EventEmitter<DynamicFormControlEvent>();
 
-    @ContentChildren(DynamicTemplateDirective) templates: QueryList<DynamicTemplateDirective>;
-
     @ViewChild(Checkbox) ionCheckbox: Checkbox | undefined;
     @ViewChild(DateTime) ionDateTime: DateTime | undefined;
     @ViewChild(TextInput) ionInput: TextInput | undefined;

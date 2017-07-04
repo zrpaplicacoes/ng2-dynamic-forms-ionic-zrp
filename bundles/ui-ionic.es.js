@@ -1,5 +1,5 @@
 /*!
-ng2-dynamic-forms-zrp 1.4.16 2017-07-04 17:48 UTC
+ng2-dynamic-forms-zrp 1.4.16 2017-07-04 18:15 UTC
 Copyright (c) 2016-2017, Udo Schöfer http://www.udos86.de
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -14,10 +14,10 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 */
-import { Component, ContentChildren, ElementRef, EventEmitter, Input, NgModule, Output, QueryList, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, NgModule, Output, QueryList, ViewChild } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Checkbox, DateTime, IonicModule, RadioGroup, Range, Select, TextInput, Toggle } from 'ionic-angular';
-import { DYNAMIC_FORM_CONTROL_TYPE_ARRAY, DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX, DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX_GROUP, DYNAMIC_FORM_CONTROL_TYPE_DATEPICKER, DYNAMIC_FORM_CONTROL_TYPE_GROUP, DYNAMIC_FORM_CONTROL_TYPE_INPUT, DYNAMIC_FORM_CONTROL_TYPE_RADIO_GROUP, DYNAMIC_FORM_CONTROL_TYPE_SELECT, DYNAMIC_FORM_CONTROL_TYPE_SLIDER, DYNAMIC_FORM_CONTROL_TYPE_SWITCH, DYNAMIC_FORM_CONTROL_TYPE_TEXTAREA, DYNAMIC_FORM_CONTROL_TYPE_TIMEPICKER, DynamicFormArrayGroupModel, DynamicFormControlComponent, DynamicFormControlModel, DynamicFormsCoreModule, DynamicTemplateDirective } from '@ng2-dynamic-forms/core';
+import { DYNAMIC_FORM_CONTROL_TYPE_ARRAY, DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX, DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX_GROUP, DYNAMIC_FORM_CONTROL_TYPE_DATEPICKER, DYNAMIC_FORM_CONTROL_TYPE_GROUP, DYNAMIC_FORM_CONTROL_TYPE_INPUT, DYNAMIC_FORM_CONTROL_TYPE_RADIO_GROUP, DYNAMIC_FORM_CONTROL_TYPE_SELECT, DYNAMIC_FORM_CONTROL_TYPE_SLIDER, DYNAMIC_FORM_CONTROL_TYPE_SWITCH, DYNAMIC_FORM_CONTROL_TYPE_TEXTAREA, DYNAMIC_FORM_CONTROL_TYPE_TIMEPICKER, DynamicFormArrayGroupModel, DynamicFormControlComponent, DynamicFormControlModel, DynamicFormsCoreModule } from '@ng2-dynamic-forms/core';
 import { CommonModule } from '@angular/common';
 import { TextMaskModule } from 'angular2-text-mask';
 
@@ -125,10 +125,6 @@ __decorate([
     Output(),
     __metadata("design:type", EventEmitter)
 ], DynamicFormIonicComponent.prototype, "focus", void 0);
-__decorate([
-    ContentChildren(DynamicTemplateDirective),
-    __metadata("design:type", QueryList)
-], DynamicFormIonicComponent.prototype, "templates", void 0);
 __decorate([
     ViewChild(Checkbox),
     __metadata("design:type", Checkbox)

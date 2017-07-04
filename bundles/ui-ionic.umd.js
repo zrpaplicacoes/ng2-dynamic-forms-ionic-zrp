@@ -1,5 +1,5 @@
 /*!
-ng2-dynamic-forms-zrp 1.4.16 2017-07-04 17:48 UTC
+ng2-dynamic-forms-zrp 1.4.16 2017-07-04 18:15 UTC
 Copyright (c) 2016-2017, Udo Schöfer http://www.udos86.de
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -124,10 +124,6 @@ __decorate([
     _angular_core.Output(),
     __metadata("design:type", _angular_core.EventEmitter)
 ], exports.DynamicFormIonicComponent.prototype, "focus", void 0);
-__decorate([
-    _angular_core.ContentChildren(_ng2DynamicForms_core.DynamicTemplateDirective),
-    __metadata("design:type", _angular_core.QueryList)
-], exports.DynamicFormIonicComponent.prototype, "templates", void 0);
 __decorate([
     _angular_core.ViewChild(ionicAngular.Checkbox),
     __metadata("design:type", ionicAngular.Checkbox)

@@ -17,10 +17,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, ContentChildren, Input, EventEmitter, ElementRef, Output, QueryList, ViewChild } from "@angular/core";
+import { Component, Input, EventEmitter, ElementRef, Output, QueryList, ViewChild } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { Checkbox, DateTime, TextInput, RadioGroup, Range, Select, Toggle } from "ionic-angular";
-import { DynamicFormControlComponent, DynamicFormControlModel, DynamicFormArrayGroupModel, DynamicTemplateDirective, DYNAMIC_FORM_CONTROL_TYPE_ARRAY, DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX, DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX_GROUP, DYNAMIC_FORM_CONTROL_TYPE_DATEPICKER, DYNAMIC_FORM_CONTROL_TYPE_GROUP, DYNAMIC_FORM_CONTROL_TYPE_INPUT, DYNAMIC_FORM_CONTROL_TYPE_RADIO_GROUP, DYNAMIC_FORM_CONTROL_TYPE_SELECT, DYNAMIC_FORM_CONTROL_TYPE_SLIDER, DYNAMIC_FORM_CONTROL_TYPE_SWITCH, DYNAMIC_FORM_CONTROL_TYPE_TEXTAREA, DYNAMIC_FORM_CONTROL_TYPE_TIMEPICKER } from "@ng2-dynamic-forms/core";
+import { DynamicFormControlComponent, DynamicFormControlModel, DynamicFormArrayGroupModel, DYNAMIC_FORM_CONTROL_TYPE_ARRAY, DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX, DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX_GROUP, DYNAMIC_FORM_CONTROL_TYPE_DATEPICKER, DYNAMIC_FORM_CONTROL_TYPE_GROUP, DYNAMIC_FORM_CONTROL_TYPE_INPUT, DYNAMIC_FORM_CONTROL_TYPE_RADIO_GROUP, DYNAMIC_FORM_CONTROL_TYPE_SELECT, DYNAMIC_FORM_CONTROL_TYPE_SLIDER, DYNAMIC_FORM_CONTROL_TYPE_SWITCH, DYNAMIC_FORM_CONTROL_TYPE_TEXTAREA, DYNAMIC_FORM_CONTROL_TYPE_TIMEPICKER } from "@ng2-dynamic-forms/core";
 var DynamicFormIonicComponent = DynamicFormIonicComponent_1 = (function (_super) {
     __extends(DynamicFormIonicComponent, _super);
     function DynamicFormIonicComponent() {
@@ -106,10 +106,6 @@ __decorate([
     Output(),
     __metadata("design:type", EventEmitter)
 ], DynamicFormIonicComponent.prototype, "focus", void 0);
-__decorate([
-    ContentChildren(DynamicTemplateDirective),
-    __metadata("design:type", QueryList)
-], DynamicFormIonicComponent.prototype, "templates", void 0);
 __decorate([
     ViewChild(Checkbox),
     __metadata("design:type", Checkbox)

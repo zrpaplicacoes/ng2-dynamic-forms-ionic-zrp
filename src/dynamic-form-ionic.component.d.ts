@@ -24,7 +24,6 @@ export declare class DynamicFormIonicComponent extends DynamicFormControlCompone
     blur: EventEmitter<DynamicFormControlEvent>;
     change: EventEmitter<DynamicFormControlEvent>;
     focus: EventEmitter<DynamicFormControlEvent>;
-    templates: QueryList<DynamicTemplateDirective>;
     ionCheckbox: Checkbox | undefined;
     ionDateTime: DateTime | undefined;
     ionInput: TextInput | undefined;
