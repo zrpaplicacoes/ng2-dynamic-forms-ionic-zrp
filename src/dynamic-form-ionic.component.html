@@ -1,8 +1,8 @@
 <div [formGroup]="group" [ngClass]="[model.cls.element.container, model.cls.grid.container]">
 
-    <ng-template *ngIf="hasStartTemplate && type !== 1"
-                 [ngTemplateOutlet]="template"
-                 [ngTemplateOutletContext]="model"></ng-template>
+    <ng-template *ngIf="type !== 1 && template?.align === 'START'"
+             [ngTemplateOutlet]="template.templateRef"
+             [ngTemplateOutletContext]="model"></ng-template>
 
 
     <div *ngIf="type === 1 && !hasCustomTemplate()"
@@ -10,19 +10,23 @@
          [formArrayName]="model.id"
          [ngClass]="model.cls.element.control">
 
-        <fieldset *ngFor="let groupModel of model.groups; let idx = index" [formGroupName]="idx">
+        <fieldset *ngFor="let groupModel of model.groups; let idx = index"
+                  [formGroupName]="idx"
+                  [ngClass]="[model.cls.element.group, model.cls.grid.group]">
             <dynamic-form-ionic-control *ngFor="let controlModel of groupModel.group"
                                         [bindId]="false"
                                         [context]="groupModel"
                                         [group]="control.at(idx)"
                                         [hasErrorMessaging]="controlModel.hasErrorMessages"
                                         [model]="controlModel"
-                                        [nestedTemplates]="templateDirectives"
+                                        [ngClass]="[controlModel.cls.element.host, controlModel.cls.grid.host]"
+                                        [nestedTemplates]="templates"
                                         (blur)="onFocusChange($event)"
                                         (change)="onValueChange($event)"
                                         (focus)="onFocusChange($event)"></dynamic-form-ionic-control>
 
-            <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="groupModel"></ng-template>
+            <ng-template [ngTemplateOutlet]="template?.templateRef"
+                         [ngTemplateOutletContext]="groupModel"></ng-template>
 
         </fieldset>
 
@@ -41,7 +45,8 @@
                                     [group]="control"
                                     [hasErrorMessaging]="controlModel.hasErrorMessages"
                                     [model]="controlModel"
-                                    [nestedTemplates]="templateDirectives"
+                                    [nestedTemplates]="templates"
+                                    [ngClass]="[controlModel.cls.element.host, controlModel.cls.grid.host]"
                                     (blur)="onFocusChange($event)"
                                     (change)="onValueChange($event)"
                                     (focus)="onFocusChange($event)"></dynamic-form-ionic-control>
@@ -59,8 +64,8 @@
 
         <ion-item *ngFor="let option of model.options$ | async">
 
-            <ion-radio [value]="option.value"></ion-radio>
             <ion-label>{{option.label}}</ion-label>
+            <ion-radio [value]="option.value"></ion-radio>
 
         </ion-item>
 
@@ -171,8 +176,8 @@
 
     </div>
 
-    <ng-template *ngIf="hasEndTemplate && type !== 1"
-                 [ngTemplateOutlet]="template"
+    <ng-template *ngIf="type !== 1 && template?.align === 'END'"
+                 [ngTemplateOutlet]="template.templateRef"
                  [ngTemplateOutletContext]="model"></ng-template>
 
     <div #customTemplate>
