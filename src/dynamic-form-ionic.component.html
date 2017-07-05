@@ -159,11 +159,11 @@
                     [ngClass]="model.cls.element.control"
                     (ionChange)="onValueChange($event)"></ion-toggle>
 
-        <ion-note *ngIf='model.placeholder' class='hint form-hint'>
-          {{model.placeholder}}
-        </ion-note>
-
     </ion-item>
+
+    <p *ngIf='model.placeholder' class='hint form-hint'>
+      {{model.placeholder}}
+    </p>
 
     <div *ngIf="hasErrorMessaging"
          [hidden]="!showErrorMessages">
